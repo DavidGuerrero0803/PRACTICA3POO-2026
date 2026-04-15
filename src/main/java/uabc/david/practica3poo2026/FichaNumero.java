@@ -48,12 +48,6 @@ public class FichaNumero {
         return vista;
     }
 
-    public void mover(int dx, int dy) {
-        this.xInicial = dx;
-        this.yInicial = dy;
-        ordenarLaFicha();
-    }
-
     public void mostrar() {
         dibujarFicha(this.valor);
     }
