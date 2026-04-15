@@ -5,7 +5,7 @@ import javafx.scene.Group;
 import java.util.ArrayList;
 
 public class FichaNumero {
-    private Group vista;
+    private Group grupo;
     private Square fondoDeLaFicha;
     private ArrayList<Square> pixeles;
 
@@ -22,7 +22,7 @@ public class FichaNumero {
     private int yInicial;
 
     public FichaNumero(int valor, String color) {
-        this.vista = new Group();
+        this.grupo = new Group();
         this.valor = valor;
         this.color = color;
         this.pixeles = new ArrayList<>();
@@ -31,21 +31,21 @@ public class FichaNumero {
 
         fondoDeLaFicha = new Square();
         fondoDeLaFicha.changeColor("white");
-        vista.getChildren().add(fondoDeLaFicha.getRectangulo());
+        grupo.getChildren().add(fondoDeLaFicha.getRectangulo());
 
         for (int i = 0; i < 15; i++) {
             Square pixel = new Square();
             pixel.changeColor(color);
             pixeles.add(pixel);
-            vista.getChildren().add(pixel.getRectangulo());
+            grupo.getChildren().add(pixel.getRectangulo());
         }
 
         ordenarLaFicha();
         mostrar();
     }
 
-    public Group getVista() {
-        return vista;
+    public Group getGrupo() {
+        return grupo;
     }
 
     public void mostrar() {

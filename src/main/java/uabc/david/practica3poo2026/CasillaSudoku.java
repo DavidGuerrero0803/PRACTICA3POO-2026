@@ -36,7 +36,7 @@ public class CasillaSudoku extends StackPane {
 
         this.borde.setStrokeType(StrokeType.INSIDE);
 
-        this.getChildren().addAll(ficha.getVista(), borde);
+        this.getChildren().addAll(ficha.getGrupo(), borde);
 
         if (valorInicial != 0) {
             ficha.dibujarFicha(valorInicial);
