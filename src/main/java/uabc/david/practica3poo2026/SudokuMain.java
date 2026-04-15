@@ -7,13 +7,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class SudokuMain extends Application {
     private TableroSudoku logica = new TableroSudoku();
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) {
         int[][] tablero = {
                 {5, 3, 0, 0, 7, 0, 0, 0, 0},
                 {6, 0, 0, 1, 9, 5, 0, 0, 0},
@@ -41,9 +39,9 @@ public class SudokuMain extends Application {
                 CasillaSudoku casilla = new CasillaSudoku(fila, columna, logica);
 
                 String bordeSuperior = (fila % 3 == 0) ? "2px" : "0.5px";
+                String bordeDerecho = ((columna + 1) % 3 == 0) ? "2px" : "0.5px";
                 String bordeInferior = ((fila + 1) % 3 == 0) ? "2px" : "0.5px";
                 String bordeIzquierdo = (columna % 3 == 0) ? "2px" : "0.5px";
-                String bordeDerecho = ((columna + 1) % 3 == 0) ? "2px" : "0.5px";
 
                 casilla.setStyle("-fx-border-color: #333333; " +
                         "-fx-border-width: " +

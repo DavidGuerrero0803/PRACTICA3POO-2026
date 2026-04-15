@@ -74,7 +74,7 @@ public class TableroSudoku {
         int columnaInicial = (columna / 3) * 3;
 
         for (int i = filaInicial; i < filaInicial + 3; i++) {
-            for (int j = columnaInicial; i < columnaInicial + 3; j++) {
+            for (int j = columnaInicial; j < columnaInicial + 3; j++) {
                 if (i != fila && j != columna && matriz[i][j] == valor) {
                     return false;
                 }

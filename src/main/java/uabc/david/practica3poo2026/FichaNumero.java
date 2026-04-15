@@ -190,6 +190,7 @@ public class FichaNumero {
         pixeles.get(0).makeVisible();
         pixeles.get(1).makeVisible();
         pixeles.get(2).makeVisible();
+        pixeles.get(3).makeVisible();
         pixeles.get(6).makeVisible();
         pixeles.get(7).makeVisible();
         pixeles.get(8).makeVisible();
