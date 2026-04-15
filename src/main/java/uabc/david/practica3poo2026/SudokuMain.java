@@ -1,10 +1,14 @@
 package uabc.david.practica3poo2026;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.Random;
@@ -18,11 +22,21 @@ public class SudokuMain extends Application {
 
         logica.cargarTablero(tableroSeleccionado);
 
-        Pane root = new Pane();
-        root.setStyle("-fx-background-color: white;");
+        VBox contenedor = new VBox(10);
+        contenedor.setAlignment(Pos.CENTER);
+        contenedor.setPadding(new Insets(20));
+        contenedor.setStyle("-fx-background-color: white;");
+
+        Label titulo = new Label("Sudoku Clásico");
+        titulo.setFont(Font.font("Arial", 46));
+        titulo.setTextFill(Color.BLACK);
+
+        Label nombre = new Label("Práctica #3 - Mario David Guerrero Márquez");
+        nombre.setFont(Font.font("Arial", 14));
+        nombre.setTextFill(Color.BLACK);
 
         GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10));
+        grid.setAlignment(Pos.CENTER);
         grid.setHgap(0);
         grid.setHgap(0);
 
@@ -46,9 +60,9 @@ public class SudokuMain extends Application {
             }
         }
 
-        root.getChildren().add(grid);
+        contenedor.getChildren().addAll(titulo, grid, nombre);
 
-        Scene scene = new Scene(root, 600, 600);
+        Scene scene = new Scene(contenedor, 650, 700);
         primaryStage.setTitle("Sudoku");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
