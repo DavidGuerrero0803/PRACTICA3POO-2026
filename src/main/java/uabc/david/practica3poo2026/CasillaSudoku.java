@@ -1,10 +1,15 @@
 package uabc.david.practica3poo2026;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
+
+import static javafx.application.Platform.exit;
+
 
 public class CasillaSudoku extends StackPane {
     private int fila;
@@ -73,6 +78,10 @@ public class CasillaSudoku extends StackPane {
             borde.setStroke(Color.GREEN);
             borde.setStrokeWidth(3);
 
+            if (logica.seHaCompletadoTablero()) {
+                mostrarMensajeGanador();
+            }
+
         } else {
             borde.setStroke(Color.RED);
             borde.setStrokeWidth(4);
@@ -94,5 +103,19 @@ public class CasillaSudoku extends StackPane {
 
         borde.setStroke(Color.ORANGE);
         borde.setStrokeWidth(3);
+    }
+
+    private void mostrarMensajeGanador() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Sudoku Terminado");
+        alert.setHeaderText(null);
+        alert.setContentText("¡Completaste el Sudoku!");
+
+        alert.showAndWait().ifPresent(respuesta -> {
+            if (respuesta == ButtonType.OK) {
+                exit();
+                System.exit(0);
+            }
+        });
     }
 }
