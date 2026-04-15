@@ -36,7 +36,48 @@ public class TableroSudoku {
             return false;
         }
 
+        if (verificarFila(fila, columna, valor) &&
+                verificarColumna(fila, columna, valor) &&
+                verificarSubcuadricula(fila, columna, valor)) {
+            return true;
+        }
+
         return false;
+    }
+
+    private boolean verificarFila(int fila, int columna, int valor) {
+        for (int j = 0; j < 9; j++) {
+            if (j != columna && matriz[fila][j] == valor) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean verificarColumna(int fila, int columna, int valor) {
+        for (int i = 0; i < 9; i++) {
+            if (i != fila && matriz[i][columna] == valor) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean verificarSubcuadricula(int fila, int columna, int valor) {
+        int filaInicial = (fila / 3) * 3;
+        int columnaInicial = (columna / 3) * 3;
+
+        for (int i = filaInicial; i < filaInicial + 3; i++) {
+            for (int j = columnaInicial; i < columnaInicial + 3; j++) {
+                if (i != fila && j != columna && matriz[i][j] == valor) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
 }
