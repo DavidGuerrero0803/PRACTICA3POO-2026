@@ -9,6 +9,10 @@ public class TableroSudoku {
         esCasillaFija = new boolean[9][9];
     }
 
+    public int getValor(int fila, int columna) {
+        return matriz[fila][columna];
+    }
+
     public void cargarTablero(int[][] tableroInicial) {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -78,6 +82,10 @@ public class TableroSudoku {
         }
 
         return true;
+    }
+
+    public boolean esFija(int fila, int columna) {
+        return esCasillaFija[fila][columna];
     }
 
 }
