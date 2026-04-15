@@ -84,6 +84,14 @@ public class TableroSudoku {
         return true;
     }
 
+    public boolean asignarValor(int fila, int columna, int valor) {
+        if (validarPosicion(fila, columna, valor)) {
+            matriz[fila][columna] = valor;
+            return true;
+        }
+        return false;
+    }
+
     public boolean esFija(int fila, int columna) {
         return esCasillaFija[fila][columna];
     }

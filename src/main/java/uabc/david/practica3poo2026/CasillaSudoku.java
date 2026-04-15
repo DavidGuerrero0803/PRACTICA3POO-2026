@@ -56,8 +56,43 @@ public class CasillaSudoku extends StackPane {
 
             if (texto.matches("[1-9]")) {
                 int valorTeclado = Integer.parseInt(texto);
+                intercambiarValor(valorTeclado);
+            } else if (e.getCode() == KeyCode.BACK_SPACE ||
+                    e.getCode() == KeyCode.DELETE ||
+                    texto.equals("0")) {
 
+                borrarValorCasilla();
             }
         });
+    }
+
+    public void intercambiarValor(int nuevoValor) {
+        if (logica.validarPosicion(fila, columna, nuevoValor)) {
+            logica.asignarValor(fila, columna, nuevoValor);
+            ficha.dibujarFicha(nuevoValor);
+            borde.setStroke(Color.GREEN);
+            borde.setStrokeWidth(3);
+
+        } else {
+            borde.setStroke(Color.RED);
+            borde.setStrokeWidth(4);
+
+            int valorReal = logica.getValor(fila, columna);
+            ficha.dibujarFicha(valorReal);
+        }
+    }
+
+    private void borrarValorCasilla() {
+        if (logica.esFija(fila, columna)) {
+            System.out.println("No se puede borrar una casilla fija");
+            return;
+        }
+
+        logica.asignarValor(fila, columna, 0);
+
+        ficha.dibujarFicha(0);
+
+        borde.setStroke(Color.ORANGE);
+        borde.setStrokeWidth(3);
     }
 }
