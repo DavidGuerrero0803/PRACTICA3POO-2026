@@ -111,11 +111,7 @@ public class CasillaSudoku extends StackPane {
         alert.setHeaderText(null);
         alert.setContentText("¡Completaste el Sudoku!");
 
-        alert.showAndWait().ifPresent(respuesta -> {
-            if (respuesta == ButtonType.OK) {
-                exit();
-                System.exit(0);
-            }
-        });
+        alert.showAndWait();
+        this.getScene().getRoot().setDisable(true);
     }
 }
